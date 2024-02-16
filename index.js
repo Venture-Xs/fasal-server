@@ -5,6 +5,8 @@ const axios = require("axios");
 
 const port = process.env.PORT || 3000;
 
+const { Crop } = require("./models/crop");
+
 app.get("/", async (req, res) => {
   res.send("Success");
 });
@@ -22,7 +24,12 @@ app.get("/predict", async (req, res) => {
     rainfall: "100",
   });
 
-  res.send(response.data);
+  Crop.insertOne({ current_crop: response.data.crop });
+
+  // call OPENAI API
+  // insert plan into database
+
+  res.send("Sucess");
 });
 
 app.listen(port, () => {
