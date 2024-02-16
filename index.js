@@ -5,7 +5,7 @@ const axios = require("axios");
 
 const port = process.env.PORT || 3000;
 
-const { Crop } = require("./models/crop");
+const Crop = require("./models/crop");
 
 app.get("/", async (req, res) => {
   res.send("Success");
