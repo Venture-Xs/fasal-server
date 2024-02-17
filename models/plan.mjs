@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose"
 
 const planSchema = new mongoose.Schema({
   crop: {
@@ -11,4 +11,4 @@ const planSchema = new mongoose.Schema({
   },
 });
 
-mongoose.model("Plan", planSchema);
+export const Plan = mongoose.model("Plan", planSchema);
