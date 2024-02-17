@@ -1,23 +1,23 @@
-import * as fs from "fs";
-import dotenv from "dotenv";
-import { MemoryVectorStore } from "langchain/vectorstores/memory";
-import { GooglePaLMEmbeddings } from "langchain/embeddings/googlepalm";
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { PromptTemplate } from "langchain/prompts";
-import { formatDocumentsAsString } from "langchain/util/document";
-import { GooglePaLM } from "langchain/llms/googlepalm";
-// import { GoogleVertexAI } from "langchain/llms/googlevertexai";
-import { AgentExecutor, initializeAgentExecutorWithOptions } from "langchain/agents";
-import { GoogleCustomSearch, SerpAPI } from "langchain/tools";
-import { Calculator } from "langchain/tools/calculator";
-import { RunnableSequence } from "langchain/schema/runnable";
-import { BufferMemory } from "langchain/memory";
-import { formatLogToString } from "langchain/agents/format_scratchpad/log";
-import { renderTextDescription } from "langchain/tools/render";
-import { ReActSingleInputOutputParser } from "langchain/agents/react/output_parser";
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { StringOutputParser } from "langchain/schema/output_parser";
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+const fs = require("fs");
+const dotenv = require("dotenv");
+const { MemoryVectorStore } = require("langchain/vectorstores/memory");
+const { GooglePaLMEmbeddings } = require("langchain/embeddings/googlepalm");
+const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
+const { PromptTemplate } = require("langchain/prompts");
+const { formatDocumentsAsString } = require("langchain/util/document");
+const { GooglePaLM } = require("langchain/llms/googlepalm");
+// const { GoogleVertexAI } = require("langchain/llms/googlevertexai");
+const { AgentExecutor, initializeAgentExecutorWithOptions } = require("langchain/agents");
+const { GoogleCustomSearch, SerpAPI } = require("langchain/tools");
+const { Calculator } = require("langchain/tools/calculator");
+const { RunnableSequence } = require("langchain/schema/runnable");
+const { BufferMemory } = require("langchain/memory");
+const { formatLogToString } = require("langchain/agents/format_scratchpad/log");
+const { renderTextDescription } = require("langchain/tools/render");
+const { ReActSingleInputOutputParser } = require("langchain/agents/react/output_parser");
+const { ChatOpenAI } = require("langchain/chat_models/openai");
+const { StringOutputParser } = require("langchain/schema/output_parser");
+const { ChatGoogleGenerativeAI } = require("@langchain/google-genai");
 
 
 dotenv.config();
@@ -25,7 +25,7 @@ dotenv.config();
 const memory = new BufferMemory({ memoryKey: "chat_history" });
 
 
-const Farmerbot = async (req, res) => {
+const FarmerBot = async (req, res) => {
     if (!req.params.prompt) {
         res.send({ result: "Please enter a question" })
     }
@@ -131,4 +131,4 @@ const Farmerbot = async (req, res) => {
 }
 
 
-export { Farmerbot }
+module.exports = { FarmerBot }
