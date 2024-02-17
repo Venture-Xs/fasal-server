@@ -19,6 +19,5 @@
     "nodemon": "^3.0.3",
     "@langchain/google-genai": "^0.0.10",
     "langchain": "^0.1.19"
-  },
-  "type": "module"
+  }
 }
